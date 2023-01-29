@@ -1,1 +1,1 @@
-![Django Portfolio][lil-thumbnail-url]
+DJango Porfolio
