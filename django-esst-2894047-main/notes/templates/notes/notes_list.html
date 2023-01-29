@@ -3,7 +3,7 @@
 {% block content %}
     <h1 class="my-5">These are the notes:</h1>
 
-    <dir class="row row-cols3 g2">
+    <div class="row row-cols3 g2">
         {% for note in notes %}
         <div class="col">
             <div class="p-3 border">
@@ -15,5 +15,9 @@
             </div>
         </div>
         {% endfor %}
-    </dir>
+    </div>
+    <!-- <div>
+        <a href="{% url 'notes.new' %}" class="btn btn-primary my-5"> New Note</a>
+        <a href="{% url 'logout' %}" class="btn btn-primary my-5"> logout</a>
+    </div> -->
 {% endblock %}

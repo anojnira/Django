@@ -1,7 +1,1 @@
-.note-li{
-    color: red;
-}
-
-.note-de{
-    color: blueviolet;
-}
+ul.errorlist {display: none;}
