@@ -1,2 +1,2 @@
 # Django
-First Django project
+A list of all my Django projects and Training
