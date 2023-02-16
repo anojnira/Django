@@ -1,0 +1,34 @@
+<h1>Make your order here</h1>
+<h2>{{ note }}</h2>
+
+{% if created_pizza_pk %}
+<a href="{% url 'edit_order' created_pizza_pk %}">Edit order</a>
+<br><br>
+{% endif %}
+
+<form action="{% url 'order' %}" method="post" novalidate> 
+    {% csrf_token %}
+    {{ pizzaform }}
+
+    <!-- {{ pizzaform.topping1.label_tag }}
+    {{ pizzaform.topping1 }}
+    {{ pizzaform.topping1.errors }}
+    <br><br>
+    {{ pizzaform.topping2.label_tag }}
+    {{ pizzaform.topping2 }}
+    {{ pizzaform.topping2.errors }}
+    <br><br>
+    <label for="{{ pizzaform.size.id_for_label }}">Pizza Size: </label>
+    {{ pizzaform.size }}
+    {{ pizzaform.size.errors }} -->
+
+    <input type="submit" value="Order Pizza">
+</form>
+<a href="{% url 'home' %}">Back</a>
+
+<br><br>
+Want more than one Pizza ?
+<form action="{% url 'pizzas' %}" method="get">
+    {{ multiple_form }}
+    <input type="submit" value="Get Pizzas">
+</form>

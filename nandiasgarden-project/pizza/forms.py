@@ -12,6 +12,9 @@ class PizzaForm(forms.ModelForm):
     #                               widget=forms.RadioSelect, 
     #                               empty_label=None)
 
+    # email = forms.EmailField()
+    # url = forms.URLField()
+    
     class Meta:
         model = Pizza
         fields = ['topping1', 'topping2', 'size']

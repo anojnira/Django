@@ -18,9 +18,12 @@ def order(request):
             t1 = filled_form.cleaned_data['topping1']
             t2 = filled_form.cleaned_data['topping2']
             note = f'Thanks for Ordering, Your {size} {t1} and {t2} pizza is on the way'
-            new_form = PizzaForm()
-            return render(request, 'pizza/order.html', {'created_pizza_pk':created_pizza_pk, 
-                                                        'pizzaform':new_form, 
+            filled_form = PizzaForm()
+        else:
+            created_pizza_pk = None
+            note = 'Order failed, Please Try again'
+        return render(request, 'pizza/order.html', {'created_pizza_pk':created_pizza_pk, 
+                                                        'pizzaform':filled_form, 
                                                         'note':note, 
                                                         'multiple_form':multiple_form})
     else:
@@ -56,4 +59,7 @@ def edit_order(request, pk):
         if filled_form.is_valid():
             filled_form.save()
             form = filled_form
-    return render(request, 'pizza/edit_order.html', {'pizzaform':form, 'pizza':pizza})
+            note = 'Order has been updated'
+        return render(request, 'pizza/edit_order.html', {'pizzaform':form, 'pizza':pizza, 'note':note})
+    else:
+        return render(request, 'pizza/edit_order.html', {'pizzaform':form, 'pizza':pizza})
